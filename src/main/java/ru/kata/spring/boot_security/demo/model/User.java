@@ -1,15 +1,12 @@
 package ru.kata.spring.boot_security.demo.model;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "users")
@@ -20,23 +17,16 @@ public class User implements UserDetails {
     private Long id;
 
     @Column
-    @NotEmpty(message = "Name should not be empty")
     private String username;
 
     @Column
-    @NotEmpty(message = "Lastname should not be empty")
     private String lastName;
 
     @Column
-    @NotNull(message = "Age should not be empty")
-    @Min(value = 0, message = "Age should be greater than 0")
-    @Max(value = 100, message = "Age should be less than 100")
     private Byte age;
 
     @Column
-    @NotEmpty(message = "Password should not be empty")
     private String password;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

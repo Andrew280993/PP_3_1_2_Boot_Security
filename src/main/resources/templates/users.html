@@ -22,7 +22,7 @@
         <th th:width="120">Lastname</th>
         <th th:width="50">Age</th>
         <th th:width="50">Password</th>
-<!--        <th th:width="50">Role</th>-->
+        <th th:width="50">Role</th>
         <th th:width="150">Action</th>
     </tr>
     <tr th:each="user : ${users}">
@@ -32,8 +32,8 @@
         <td th:utext="${user.getAge()}">Age</td>
         <td th:utext="${user.getPassword()}">Password</td>
         <td>
-                    <span th:each="role : ${user.getRoles()}">
-                        <span th:text="${role.getRole()}"></span>
+                    <span th:each="roles : ${user.getRoles()}">
+                        <span th:text="${roles.getRole()}"></span>
                         </span>
         </td>
         <td>
